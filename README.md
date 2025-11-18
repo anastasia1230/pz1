@@ -4,4 +4,4 @@
 Этот репозиторий является каркасом для будущего веб-приложения.
 
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://github.com/anastasia1230/pz1.git)
+- [Публичная страница на GitHub Pages](https://anastasia1230.github.io/pz1/)
