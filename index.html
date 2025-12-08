@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avion</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel = "stylesheet" href = "style.css">
 </head>
 
 <body>
@@ -37,15 +38,17 @@
 
     <main>
         <section>
-            <h2>The furniture brand for the future, with timeless designs</h2>
-            <button>View collection</button>
-            <p>A new era in eco friendly furniture with Avelon, the French luxur y retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.</p>
+            <div>
+                <h2>The furniture brand for the future, with timeless designs</h2>
+                <p>A new era in eco friendly furniture with Avelon, the French luxur y retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.</p>
+                <button>View collection</button>
+            </div>
             <img src = "assets/img/chair_2.png" alt = "">
         </section>
 
         <section>
             <h2>What makes our brand different</h2>
-            <div>
+            <div class="clearfix">
                 <article>
                     <img src="assets/icons/delivery.png" alt="delivery">
                     <h3>Next day as standard</h3>
@@ -59,7 +62,7 @@
                 <article>
                     <img src="assets/icons/purchase.png" alt="purchase">
                     <h3>Unbeatable prices</h3>
-                    <p>For our materials and quality you won’t find better prices anywhere</p>
+                    <p>For our materials and quality you won't find better prices anywhere</p>
                 </article>
                 <article>
                     <img src="assets/icons/sprout.png" alt="sprout">
@@ -71,7 +74,7 @@
 
         <section>
             <h2>New ceramics</h2>
-            <div>
+            <div class="clearfix">
                 <article>
                     <img src="assets/img/chair_1.png" alt="chair">
                     <h3>The Dandy chair</h3>
@@ -98,7 +101,7 @@
 
         <section>
             <h2>Our popular products</h2>
-            <div>
+            <div class="clearfix">
                 <article>
                     <img src="assets/img/sofa.png" alt="The Poplar suede sofa">
                     <h3>The Poplar suede sofa</h3>
@@ -125,61 +128,67 @@
             <button>Sign up</button>
         </section>
 
-        <section>
-            <h2>From a studio in London to a global brand with over 400 outlets</h2>
-            <p>When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.</p>
-            <p>Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.</p>
-            <button>Get in touch</button>
+        <section class="clearfix">
+            <div>
+                <h2>From a studio in London to a global brand with over 400 outlets</h2>
+                <p>When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market.</p>
+                <p>Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.</p>
+                <button>Get in touch</button>
+            </div>
             <img src = "assets/img/sofa_with_plants.png" alt = "">
         </section>
 
     </main>
 
     <footer>
-    <div>
-        <div>
-            <h3>Menu</h3>
-            <ul>
-                <li><a href="#">New arrivals</a></li>
-                <li><a href="#">Best sellers</a></li>
-                <li><a href="#">Recently viewed</a></li>
-                <li><a href="#">Popular this week</a></li>
-                <li><a href="#">All products</a></li>
-            </ul>
+    <div class="footer-container">
+        <div class="clearfix">
+            <div>
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#">New arrivals</a></li>
+                    <li><a href="#">Best sellers</a></li>
+                    <li><a href="#">Recently viewed</a></li>
+                    <li><a href="#">Popular this week</a></li>
+                    <li><a href="#">All products</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Crockery</a></li>
+                    <li><a href="#">Furniture</a></li>
+                    <li><a href="#">Homeware</a></li>
+                    <li><a href="#">Plant pots</a></li>
+                    <li><a href="#">Chairs</a></li>
+                    <li><a href="#">Crockery</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3>Our company</h3>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Vacancies</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Returns policy</a></li>
+                </ul>
+            </div>
+            
+            <section>
+                <h3>Join our mailing list</h3>
+                <div class="form-container">
+                    <input type="email" placeholder="Your email">
+                    <button>Sign up</button>
+                </div>
+            </section>
         </div>
-        
-        <div>
-            <h3>Categories</h3>
-            <ul>
-                <li><a href="#">Crockery</a></li>
-                <li><a href="#">Furniture</a></li>
-                <li><a href="#">Homeware</a></li>
-                <li><a href="#">Plant pots</a></li>
-                <li><a href="#">Chairs</a></li>
-                <li><a href="#">Crockery</a></li>
-            </ul>
-        </div>
-        
-        <div>
-            <h3>Our company</h3>
-            <ul>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Vacancies</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Returns policy</a></li>
-            </ul>
-        </div>
-    </div>
 
-    <section>
-        <p>Join our mailing list</p>
-        <input type = "email">
-        <button>Sign up</button>
-    </section>
-
-    <div>
-        <p>Copyright 2022 Avion LTD</p>
+        <div>
+            <p>Copyright 2022 Avion LTD</p>
+        </div>
     </div>
     </footer>
 
