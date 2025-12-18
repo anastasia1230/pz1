@@ -1,5 +1,4 @@
 /* RESET */
-
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -23,6 +22,8 @@ a {
 button {
     font: inherit;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 input {
@@ -50,6 +51,13 @@ input {
     --lh: 1.5;
 
     --container-max: 1440px;
+    
+    /* Breakpoints */
+    --bp-xl: 1199px;
+    --bp-lg: 991px;
+    --bp-md: 767px;
+    --bp-sm: 575px;
+    --bp-xs: 399px;
 }
 
 
@@ -63,7 +71,7 @@ body {
 }
 
 
-main, header > div, nav ul, footer > div, footer section {
+main, .header-container, .footer-container {
     width: var(--container-max);
     max-width: 90%;
     margin: 0 auto;
@@ -72,28 +80,31 @@ main, header > div, nav ul, footer > div, footer section {
 
 
 /* HEADER */
-
 header {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-header > div {
+.header-container {
     height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
-header > div span:first-of-type {
-    position: absolute;
-    left: 0;
-    top: 0;
+.header-container span:first-of-type {
+    position: static;
+    flex: 0 0 auto;
 }
 
-header > div span:first-of-type img {
+.header-container span:first-of-type img {
     width: 22px;
     cursor: pointer;
 }
 
-header > div img[alt="Логотип Avion"] {
+/* Логотип по центру */
+.header-container img[alt="Логотип Avion"] {
     width: auto;
     height: 100%;
     position: absolute;
@@ -101,52 +112,57 @@ header > div img[alt="Логотип Avion"] {
     transform: translateX(-50%);
 }
 
-header > div span:nth-of-type(2),
-header > div span:nth-of-type(3) {
+/* Корзина и аватар */
+.header-right-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
     position: absolute;
+    right: 0;
     top: 0;
-    right: 0;
 }
 
-header > div span:nth-of-type(2) {
-    right: 50px;
-}
-
-header > div span:nth-of-type(3) {
-    right: 0;
-}
-
-header > div span img {
+.header-right-icons img {
     width: 22px;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
 }
 
-nav ul {
-    text-align: center;
+/* Навигация */
+nav {
     margin-top: 25px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
+.nav-list {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-nav a {
+.nav-list li {
+    display: inline-block;
+}
+
+.nav-list a {
     font-size: var(--body);
     color: var(--text-gray);
     transition: .2s;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 4px;
 }
 
-nav a:hover {
+.nav-list a:hover {
     color: var(--dark-primary);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 
 /* HERO SECTION */
-
-main > section:first-of-type {
+.hero-section {
     margin-top: 60px;
     background: var(--light-gray);
     border-radius: 10px;
@@ -156,14 +172,14 @@ main > section:first-of-type {
     overflow: hidden;
 }
 
-main > section:first-of-type h2 {
+.hero-section h2 {
     width: 45%;
     font-size: var(--h1);
     font-weight: 400;
     line-height: 1.2;
 }
 
-main > section:first-of-type p {
+.hero-section p {
     width: 45%;
     margin-top: 20px;
     font-size: var(--body);
@@ -171,7 +187,7 @@ main > section:first-of-type p {
     margin-bottom: 30px;
 }
 
-main > section:first-of-type button {
+.cta-button {
     padding: 14px 32px;
     background: var(--text-dark);
     color: var(--white);
@@ -181,11 +197,11 @@ main > section:first-of-type button {
     transition: .2s;
 }
 
-main > section:first-of-type button:hover {
+.cta-button:hover {
     opacity: .85;
 }
 
-main > section:first-of-type img {
+.hero-section img {
     width: 420px;
     position: absolute;
     right: 100px;
@@ -193,91 +209,72 @@ main > section:first-of-type img {
     transform: translateY(-50%);
 }
 
-
-/* WHAT MAKES OUR BRAND */
-
-main section:nth-of-type(2) {
+.features-section {
     margin-top: 120px;
     text-align: center;
 }
 
-main section:nth-of-type(2) h2 {
+.features-section h2 {
     font-size: var(--h2);
     font-weight: 400;
 }
 
-main section:nth-of-type(2) > div {
+.features-grid {
     margin-top: 60px;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.66%;
 }
 
-main section:nth-of-type(2) article {
-    width: 23%;
-    float: left;
-    margin-right: 2.66%;
+.features-section article {
     box-sizing: border-box;
 }
 
-main section:nth-of-type(2) article:last-child {
-    margin-right: 0;
-}
-
-main section:nth-of-type(2) article img {
+.features-section article img {
     width: 32px;
     margin: 0 auto 20px auto;
 }
 
-main section:nth-of-type(2) article h3 {
+.features-section article h3 {
     font-size: var(--h3);
     margin-bottom: 10px;
 }
 
-main section:nth-of-type(2) article p {
+.features-section article p {
     color: var(--text-gray);
     font-size: var(--body);
 }
 
 
 /* NEW CERAMICS */
-
-main section:nth-of-type(3) {
+.products-section {
     margin-top: 120px;
-    overflow: hidden;
 }
 
-main section:nth-of-type(3) h2 {
+.products-section h2 {
     font-size: var(--h2);
     font-weight: 400;
 }
 
-main section:nth-of-type(3) > div {
+.products-grid {
     margin-top: 40px;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.66%;
 }
 
-main section:nth-of-type(3) article {
-    width: 23%;
-    float: left;
-    margin-right: 2.66%;
-    box-sizing: border-box;
-}
-
-main section:nth-of-type(3) article:last-child {
-    margin-right: 0;
-}
-
-main section:nth-of-type(3) article h3 {
+.products-section article h3 {
     margin-top: 15px;
     font-size: var(--h4);
 }
 
-main section:nth-of-type(3) article p {
+.products-section article p {
     margin-top: 8px;
     font-size: var(--h4);
     color: var(--text-gray);
 }
 
-main section:nth-of-type(3) button {
+.view-collection-btn {
     display: block;
     margin: 40px auto 0 auto;
     padding: 14px 40px;
@@ -288,106 +285,83 @@ main section:nth-of-type(3) button {
     transition: .2s;
 }
 
-main section:nth-of-type(3) button:hover {
+.view-collection-btn:hover {
     background: var(--text-dark);
     color: var(--white);
 }
 
 
 /* OUR POPULAR PRODUCTS */
-
-main section:nth-of-type(4) {
+.popular-products {
     margin-top: 120px;
-    overflow: hidden;
 }
 
-main section:nth-of-type(4) h2 {
+.popular-products h2 {
     font-size: var(--h2);
     font-weight: 400;
 }
 
-main section:nth-of-type(4) > div {
+.popular-grid {
     margin-top: 40px;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5%;
 }
 
-main section:nth-of-type(4) article {
-    width: 31%;
-    float: left;
-    margin-right: 3.5%;
+.popular-products article {
     box-sizing: border-box;
-    height: 400px; 
+    height: 400px;
     overflow: hidden;
 }
 
-main section:nth-of-type(4) article:last-child {
-    margin-right: 0;
-}
-
-main section:nth-of-type(4) article img {
+.popular-products article img {
     width: 100%;
     height: 300px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
-main section:nth-of-type(4) article h3 {
+.popular-products article h3 {
     margin-top: 15px;
     font-size: var(--h4);
     text-align: center;
 }
 
-main section:nth-of-type(4) article p {
+.popular-products article p {
     margin-top: 8px;
     font-size: var(--h4);
     color: var(--text-gray);
     text-align: center;
 }
 
-main section:nth-of-type(4) button {
-    display: block;
-    margin: 40px auto 0 auto;
-    padding: 14px 40px;
-    border: 1px solid var(--text-dark);
-    background: var(--white);
-    cursor: pointer;
-    font-size: var(--body);
-    transition: .2s;
-}
 
-main section:nth-of-type(4) button:hover {
-    background: var(--text-dark);
-    color: var(--white);
-}
-
-
-/* NEWSLETTER */
-
-main section:nth-of-type(5) {
+/* NEWSLETTER SIMPLE SECTION */
+.newsletter-simple {
     margin-top: 120px;
     background: var(--light-gray);
     padding: 80px 100px;
     text-align: center;
 }
 
-main section:nth-of-type(5) h2 {
+.newsletter-simple h2 {
     font-size: var(--h2);
     font-weight: 400;
 }
 
-main section:nth-of-type(5) p {
+.newsletter-simple p {
     width: 600px;
     margin: 20px auto;
     color: var(--text-gray);
     font-size: var(--body);
 }
 
-main section:nth-of-type(5) input {
+.newsletter-simple input {
     padding: 14px 18px;
     width: 260px;
     border: 1px solid var(--border-gray);
+    margin-right: 10px;
 }
 
-main section:nth-of-type(5) button {
+.signup-btn {
     padding: 14px 28px;
     background: var(--text-dark);
     color: var(--white);
@@ -397,69 +371,132 @@ main section:nth-of-type(5) button {
     transition: .2s;
 }
 
-main section:nth-of-type(5) button:hover {
+.signup-btn:hover {
     opacity: .85;
 }
 
-
-/* LARGE IMAGE & TEXT */
-
-main section:nth-of-type(6) {
+/* MASONRY LAYOUT */
+.masonry-section {
     margin-top: 120px;
-    overflow: hidden;
-    position: relative;
-    min-height: 500px;
+    padding: 40px 0;
 }
 
-main section:nth-of-type(6) h2 {
+.masonry-section h2 {
     font-size: var(--h2);
-    width: 45%;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 24px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.masonry-item {
+    display: inline-block;
+    margin: 0 0 1em;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+    transition: transform 0.3s ease;
+    break-inside: avoid;
+}
+
+.masonry-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.masonry-item h3 {
+    font-size: var(--h3);
+    margin-bottom: 10px;
+}
+
+.masonry-item p {
+    color: var(--text-gray);
+    font-size: var(--body);
+}
+
+.masonry-form {
+    margin-top: 15px;
+}
+
+.masonry-form input {
+    padding: 10px 14px;
+    width: 100%;
+    border: 1px solid var(--border-gray);
+    margin-bottom: 10px;
+}
+
+.masonry-form button {
+    padding: 10px 20px;
+    background: var(--text-dark);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Для элементов разной высоты в masonry */
+.masonry-item:nth-child(2n) {
+    min-height: 200px;
+}
+
+.masonry-item:nth-child(3n) {
+    min-height: 220px;
+}
+
+.masonry-item:nth-child(4n) {
+    min-height: 180px;
+}
+
+/* BRAND STORY SECTION */
+.brand-story {
+    margin-top: 120px;
+    position: relative;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.brand-story h2 {
+    font-size: var(--h2);
+    width: 100%;
     font-weight: 400;
 }
 
-main section:nth-of-type(6) p {
-    width: 45%;
+.brand-story p {
+    width: 100%;
     color: var(--text-gray);
     margin-top: 15px;
 }
 
-main section:nth-of-type(6) p:first-of-type {
+.brand-story p:first-of-type {
     margin-top: 20px;
 }
 
-main section:nth-of-type(6) button {
-    margin-top: 30px;
-    padding: 14px 32px;
-    border: 1px solid var(--text-dark);
-    background: var(--white);
-    font-size: var(--body);
-    cursor: pointer;
-    transition: .2s;
-}
-
-main section:nth-of-type(6) button:hover {
-    background: var(--text-dark);
-    color: var(--white);
-}
-
-main section:nth-of-type(6) img {
-    width: 520px;
+.brand-story img {
+    width: 100%;
     border-radius: 10px;
-    position: absolute;
-    right: 0;
+    position: relative;
     top: 0;
+    right: 0;
 }
-
 
 
 /* FOOTER */
-
 footer {
     background: var(--text-dark);
     color: white;
     margin-top: 120px;
     padding: 60px 0;
-    overflow: hidden;
 }
 
 .footer-container {
@@ -469,81 +506,377 @@ footer {
     position: relative;
 }
 
-.footer-container > div:first-of-type {
-    overflow: hidden;
-    width: 100%;
-    float: none;
+/* Центрируем все колонки футера */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4%;
+    margin-bottom: 60px;
+    justify-items: center;
+    text-align: center;
 }
 
-.footer-container > div:first-of-type > div,
-.footer-container > div:first-of-type section {
-    width: 22%; 
-    float: left;
-    margin-right: 4%;
-    box-sizing: border-box;
-}
-
-
-.footer-container > div:first-of-type > div:last-child,
-.footer-container > div:first-of-type section:last-child {
-    margin-right: 0;
-}
-
+/* Центрируем заголовки и списки */
 footer h3 {
     font-size: 18px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-footer ul li {
+.footer-column ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-column li {
     margin-bottom: 12px;
-    color: #E1E1E1;
+    color: #ECEAF2;
     font-size: var(--body);
+    text-align: center;
 }
 
-.footer-container > div:first-of-type section h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: var(--white);
-}
-
-.footer-container > div:first-of-type section p {
-    display: none; 
-}
-
-
-.footer-container > div:first-of-type section .form-container {
+/* Центрируем форму подписки */
+.footer-newsletter-form {
     margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.footer-container > div:first-of-type section input {
+.footer-newsletter-form input {
     padding: 12px 18px;
-    width: 60%; 
+    width: 100%;
+    max-width: 220px;
     border: none;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
+    text-align: center;
 }
 
-.footer-container > div:first-of-type section button {
+.footer-newsletter-form button {
     padding: 12px 28px;
     background: var(--white);
     color: var(--text-dark);
     border: none;
     cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0;
+    white-space: nowrap;
 }
 
-.footer-container > div:last-of-type {
+.footer-bottom {
     text-align: center;
-    margin-top: 60px;
     color: #A1A1A1;
-    clear: both;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+
+/* МЕДИАЗАПРОСЫ */
+
+/* Ноутбуки (меньше 1200px) */
+@media (max-width: 1199px) {
+    :root {
+        --container-max: 1200px;
+    }
+    
+    .hero-section {
+        padding: 60px;
+    }
+    
+    .hero-section img {
+        width: 380px;
+        right: 60px;
+    }
+    
+    .masonry-grid {
+        column-count: 2;
+    }
+    
+    .footer-grid {
+        justify-items: center;
+        text-align: center;
+    }
+}
+
+/* Планшеты (меньше 992px) */
+@media (max-width: 991px) {
+    :root {
+        --h1: 36px;
+        --h2: 28px;
+        --h3: 18px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .popular-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .popular-products article:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        justify-items: center;
+        text-align: center;
+    }
+    
+    .nav-list {
+        gap: 15px;
+    }
+    
+    .hero-section {
+        padding: 40px;
+    }
+    
+    .hero-section h2,
+    .hero-section p {
+        width: 55%;
+    }
+    
+    .hero-section img {
+        width: 320px;
+        right: 40px;
+    }
+    
+    .newsletter-simple {
+        padding: 60px 40px;
+    }
+    
+    .newsletter-simple p {
+        width: 80%;
+    }
+    
+    .masonry-grid {
+        column-count: 2;
+        column-gap: 20px;
+    }
+}
+
+/* Мобильные в альбомной ориентации (меньше 768px) */
+@media (max-width: 767px) {
+    :root {
+        --h1: 32px;
+        --h2: 24px;
+        --h3: 18px;
+        --h4: 16px;
+    }
+    
+    .header-container {
+        flex-direction: row;
+        height: 40px;
+        justify-content: space-between;
+    }
+    
+    .header-container img[alt="Логотип Avion"] {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        order: 2;
+        margin-bottom: 0;
+    }
+    
+    .header-container span:first-of-type {
+        order: 1;
+        align-self: center;
+    }
+    
+    .header-right-icons {
+        position: static;
+        order: 3;
+        align-self: center;
+        margin-top: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .nav-list li {
+        display: block;
+    }
+    
+    .hero-section {
+        text-align: center;
+        padding: 40px 20px;
+        min-height: auto;
+    }
+    
+    .hero-section h2,
+    .hero-section p {
+        width: 100%;
+    }
+    
+    .hero-section img {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 40px auto 0;
+        display: block;
+    }
+    
+    .features-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .popular-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .popular-products article:last-child {
+        grid-column: 1;
+        max-width: 100%;
+    }
+    
+    .brand-story {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        min-height: auto;
+    }
+    
+    .brand-story img {
+        order: -1;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        justify-items: center;
+        text-align: center;
+    }
+    
+    .footer-newsletter-form input {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .footer-newsletter-form {
+        justify-content: center;
+    }
+    
+    .masonry-grid {
+        column-count: 1;
+        column-gap: 0;
+    }
+    
+    .masonry-item {
+        margin-bottom: 20px;
+    }
+    
+    .newsletter-simple input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .signup-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Мобильные (меньше 576px) */
+@media (max-width: 575px) {
+    :root {
+        --h1: 28px;
+        --h2: 22px;
+        --body: 14px;
+    }
+    
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .header-container img[alt="Логотип Avion"] {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: 30px;
+    }
+    
+    .header-right-icons {
+        margin-right: 0;
+    }
+    
+    .newsletter-simple {
+        padding: 40px 20px;
+    }
+    
+    .newsletter-simple p {
+        width: 100%;
+    }
+    
+    .footer-newsletter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-newsletter-form button {
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
+/* Очень маленькие экраны (меньше 400px) */
+@media (max-width: 399px) {
+    :root {
+        --h1: 24px;
+        --h2: 20px;
+        --body: 13px;
+    }
+    
+    main, .header-container, .footer-container {
+        max-width: 95%;
+    }
+    
+    .masonry-grid {
+        padding: 0 2%;
+    }
+    
+    .masonry-item {
+        padding: 1rem;
+    }
+    
+    .cta-button,
+    .view-collection-btn,
+    .signup-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .header-container img[alt="Логотип Avion"] {
+        height: 25px;
+    }
+    
+    .header-right-icons {
+        gap: 10px;
+    }
+    
+    .header-container span:first-of-type img,
+    .header-right-icons img {
+        width: 18px;
+        height: 18px;
+    }
 }
