@@ -6,28 +6,39 @@
     <title>Avion</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 1024px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="header-container">
-            <span>
+            <span class="search-icon">
                 <img src="assets/icons/search.png" alt="search">
             </span>
-            <img src="assets/img/logo.png" alt="Логотип Avion">
+            <img src="assets/img/logo.png" alt="Логотип Avion" class="logo">
+            
+            <!-- Гамбургер-кнопка (планшет/мобильные) -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+            </button>
+
             <div class="header-right-icons">
-                <span>
+                <span class="cart-icon">
                     <img src="assets/icons/cart.png" alt="shopping cart">
                 </span>
-                <span>
+                <span class="avatar-icon">
                     <img src="assets/icons/avatar.png" alt="user avatar">
                 </span>
             </div>
         </div>
-        <nav>
+
+        <!-- Основная навигация -->
+        <nav class="nav" id="mainNav">
             <ul class="nav-list">
                 <li><a href="#">Plant pots</a></li>
                 <li><a href="#">Ceramics</a></li>
@@ -194,5 +205,7 @@
             </div>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+    <script src="scripts/menu.js"></script>
 </body>
 </html>
